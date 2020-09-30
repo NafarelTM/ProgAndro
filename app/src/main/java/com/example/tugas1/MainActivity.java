@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate: dipanggil");
+        Log.i(TAG, "onCreate: percobaan");
         setContentView(R.layout.activity_main);
     }
 }
