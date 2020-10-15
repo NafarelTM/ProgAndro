@@ -1,4 +1,4 @@
-package com.example.tugas1;
+package com.example.HelloWorld;
 
 import org.junit.Test;
 

@@ -1,16 +1,18 @@
-package com.example.tugas1;
+package com.example.HelloWorld;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
+
+    private static final String TAG = LoginActivity.class.getSimpleName();
 
     private EditText txtUsername;
     private EditText txtPassword;
@@ -19,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.i(TAG, "onCreate: dipanggil");
+        Log.i(TAG, "onCreate: percobaan");
         setContentView(R.layout.activity_main);
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
@@ -35,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Username atau Password Anda tidak benar!", Toast.LENGTH_SHORT).show();
                 }
             }
-            private void onClickberhasil(){
-                setContentView(R.layout.home_screen_activity);
-            }
         });
+    }
+
+    private void onClickberhasil(){
+        startActivity(new Intent(this, HomeScreenActivity.class));
     }
 }
