@@ -1,8 +1,16 @@
 package com.example.HelloWorld;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.i(TAG, "onCreate: dipanggil");
         Log.i(TAG, "onCreate: percobaan");
         setContentView(R.layout.activity_main);
+
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
         btnLogin = findViewById(R.id.btnLogin);
