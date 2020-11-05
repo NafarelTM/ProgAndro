@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">ProgAndro</string>
+    <string name="app_name">ProgAndro</string> 
+    <string-array name="filmTitle">
+        <item>Bucin</item>
+        <item>Passengers</item>
+        <item>Boruto: Naruto The Movie</item>
+        <item>One Piece: Stampede</item>
+        <item>Avengers: Endgame</item>
+    </string-array>
+    <string-array name="filmDescription">
+        <item>Andovi, Tommy, Jovi, and Chandra try to get out of unhealthy relationships because they are bucin (slaves of love). They decide to take the antibucin class so they can have a more mature relationship, and not be enslaved by love. It turns out that the method of teaching, taught by Vania, is very extreme. Even threatening their love and friendship relationships.</item>
+        <item>The spaceship, Starship Avalon, in its 120-year voyage to a distant colony planet known as the Homestead Colony and transporting 5,258 people has a malfunction in one of its sleep chambers. As a result one hibernation pod opens prematurely and the one person that awakes, Jim Preston (Chris Pratt) is stranded on the spaceship, still 90 years from his destination.</item>
+        <item>Boruto Uzumaki is the son of Naruto Uzumaki, the Seventh Hokage of the Hidden Leaf Village. Having heard stories of Naruto deeds as a hero, Boruto wishes to surpass his father. Following Sarada Uchiha, Boruto meets his fathers friend, Sasuke Uchiha, and requests to be trained by him.</item>
+        <item>Pirates from around the world gather at the Pirates Expo to join the hunt for Gol D. Rogers lost treasure.</item>
+        <item>After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...</item>
+    </string-array>
 </resources>
