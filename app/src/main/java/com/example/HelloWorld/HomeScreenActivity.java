@@ -3,12 +3,18 @@ package com.example.HelloWorld;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.Switch;
@@ -24,6 +30,9 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     private static final String TAG = HomeScreenActivity.class.getSimpleName();
 
+    private Button btnStartJob;
+    private Button btnStopJob;
+
     private Switch wifiSwitch;
     private WifiManager wifiManager;
 
@@ -32,6 +41,9 @@ public class HomeScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen_activity);
+
+        btnStartJob = findViewById(R.id.startJob);
+        btnStopJob = findViewById(R.id.stopJob);
 
         wifiSwitch = findViewById(R.id.wifi_switch);
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
@@ -122,4 +134,27 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         }
     };
+
+    public void scheduleJob(View view){
+        ComponentName componentName = new ComponentName(getApplicationContext(), MyJobService.class);
+        JobInfo info = new JobInfo.Builder(123, componentName)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setPersisted(true)
+                .setPeriodic(15*60*1000)
+                .build();
+
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        int resultCode = scheduler.schedule(info);
+        if(resultCode == JobScheduler.RESULT_SUCCESS){
+            Log.i(TAG, "scheduleJob: Job Scheduled");
+        } else{
+            Log.i(TAG, "scheduleJob: Job scheduling failed!!");
+        }
+    }
+
+    public void cancelJob(View view){
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        scheduler.cancel(123);
+        Log.i(TAG, "cancelJob");
+    }
 }
