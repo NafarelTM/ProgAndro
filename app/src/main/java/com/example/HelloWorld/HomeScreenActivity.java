@@ -30,8 +30,11 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     private static final String TAG = HomeScreenActivity.class.getSimpleName();
 
+    private Button btnLogout;
     private Button btnStartJob;
     private Button btnStopJob;
+
+    private SharedPrefManager sharedPrefManager;
 
     private Switch wifiSwitch;
     private WifiManager wifiManager;
@@ -41,6 +44,19 @@ public class HomeScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen_activity);
+
+        btnLogout = findViewById(R.id.btnLogout);
+        sharedPrefManager = new SharedPrefManager(this);
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPrefManager.saveSPBoolean(sharedPrefManager.SP_SUDAH_LOGIN, false);
+                startActivity(new Intent(HomeScreenActivity.this, LoginActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
+            }
+        });
 
         btnStartJob = findViewById(R.id.startJob);
         btnStopJob = findViewById(R.id.stopJob);

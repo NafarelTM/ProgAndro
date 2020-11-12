@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context=".HomeScreenActivity">
 
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@color/colorAccent"
+        android:text="Logout"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"/>
+
     <Switch
         android:id="@+id/wifi_switch"
         android:layout_width="wrap_content"
