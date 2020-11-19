@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".Register"/>
         <activity android:name=".HomeScreenActivity"/>
+        <activity android:name=".MahasiswaActivity"/>
 
         <service android:name=".MyJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"/>

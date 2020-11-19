@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText txtUsername;
     private EditText txtPassword;
     private Button btnLogin;
-//    private Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
         btnLogin = findViewById(R.id.btnLogin);
-//        btnLogout = findViewById(R.id.btnLogout);
         sharedPrefManager = new SharedPrefManager(this);
         databaseHelper = new DatabaseHelper(this);
         TextView createAccount = findViewById(R.id.buatAkun);
